@@ -10,6 +10,15 @@ namespace CoffeeDecoratorExample
     {
         static void Main(string[] args)
         {
+            ICoffeeComponent c = new CoffeeConcreteComponent();
+            Console.WriteLine($"Cost: {c.GetCost()}; Ingredients: {c.GetIngredients()}");
+
+            c = new CoffeeWithMilkConcreteDecorator(c);
+            Console.WriteLine($"Cost: {c.GetCost()}; Ingredients: {c.GetIngredients()}");
+
+            c = new CoffeeWithSprinklesConcreteDecorator(c);
+            Console.WriteLine($"Cost: {c.GetCost()}; Ingredients: {c.GetIngredients()}");
+            // Console.ReadLine();
         }
     }
 }
